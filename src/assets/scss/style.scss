@@ -1,0 +1,248 @@
+@use "sass:color";
+
+$primary-color: #5a41fd;   
+$secondary-color: #ffd700;  
+$accent-color: #9002f6;     
+$bg-color: #f0f0f0;         
+$text-color: #060606;   
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: $bg-color;
+  color: $text-color;
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  color: $accent-color;
+  margin: 1rem 0;
+}
+
+#app {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+header {
+  background-color: color.adjust($accent-color, $lightness: -10%);
+  color: whitesmoke;
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+
+  .wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  nav {
+    a {
+      color: #ffff00;
+      margin-right: 1rem;
+      text-decoration: none;
+      font-weight: bold;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+main {
+  width: 100%;
+  padding: 1.5rem;
+  background-color: #fd01cb;
+  border-radius: 10px;
+  box-shadow: 3px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor para el mensaje y la lista de tareas */
+.my-8 {
+  margin: 2rem 0;
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  font-weight: bold;
+
+  p {
+    background-color: color.adjust($secondary-color, $lightness: 30%);
+    padding: 0.5rem;
+    border-radius: 3px;
+    color: $text-color;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Lista de tareas */
+.todo-list {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Cada item de la lista */
+.todo-item {
+  display: flex;
+  flex-direction: column; // Si deseas que el botón vaya debajo del texto
+  background-color: $secondary-color;
+  color: $text-color;
+  border-radius: 5px;
+  padding: 0.5rem 0.8rem;
+
+  .task-text {
+    margin: 0;
+    font-weight: 500;
+  }
+
+  button {
+    margin-top: 0.5rem;
+    background-color: $primary-color;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 0.8rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: color.adjust($primary-color, $lightness: -10%);
+    }
+  }
+
+  &.completed {
+    opacity: 0.7;
+    text-decoration: line-through;
+  }
+}
+
+/* Sección para añadir nueva tarea (unificada) */
+.add-todo {
+  display: flex;
+  flex-direction: column; // Columna por defecto (botón debajo del input)
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+
+  input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 2px solid $primary-color;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+
+  button {
+    background-color: $accent-color;
+    color: #c7f706;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 100%;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: color.adjust($accent-color, $lightness: -10%);
+    }
+  }
+}
+
+/* Sección de reset (unificada) */
+.reset-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+
+  .reset-btn {
+    background-color: #c7f706;
+    color: #861ee7;
+    font-weight: bolder;
+    font-size: 1rem;
+    border: none;
+    border-radius: 3px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+
+    &:hover {
+      background-color: color.adjust(#c7f706, $lightness: -10%);
+    }
+  }
+}
+
+/* Estilo para los íconos */
+.iconos {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Media Queries */
+@media screen and (max-width: 400px) {
+  main {
+    width: 95%;
+    padding: 0.8rem;
+  }
+
+  .add-todo {
+    input {
+      margin-bottom: 0.5rem;
+    }
+  }
+  .iconos {
+    font-size: 1rem;
+  }  
+  .reset-btn {
+    width: 100%;
+    
+  }
+}
+
+@media screen and (min-width: 400px) {
+  .add-todo {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+
+    input {
+      flex: 2;
+    }
+
+    button {
+      white-space: nowrap;
+      padding: 0.5rem 1rem;
+      max-width: 30%;
+    }
+  }
+  .reset-section {
+    justify-content: flex-end;
+  }
+  .reset-btn {
+    width: 100%;
+    max-width: 30%;
+  }
+}
