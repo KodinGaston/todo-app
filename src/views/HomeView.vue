@@ -35,8 +35,8 @@ function resetAll() {
   <main>
     <div class="my-8">
       <p v-if="showCompletedMessage">
-        ☆¸ . • * Great job! ☆¸ . • *
-        You completed this task! ☺ 💫
+       💫 ☆ • * Great job! ☆ • * 💫
+        You completed this task! ☺
       </p>
 
       <!-- Si hay tareas, mostramos la lista -->
