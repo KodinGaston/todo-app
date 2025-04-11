@@ -31,8 +31,8 @@ function toggleCompletedState() {
       {{ todoText }}  <!-- Aquí mostramos el nombre del todo -->
     </div>
     <button @click="toggleCompletedState">
-      <span v-if="isDone">Done ✔️</span>
-      <span v-if="!isDone">❌ Not Done</span>
+      <span v-if="isDone">🟢 Done</span>
+      <span v-if="!isDone">🔴 Not Done</span>
     </button>
   </div>
 </template>

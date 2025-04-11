@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <div class="about-container">
-      <h1>📌 To Do App ☺</h1>
+      <h1>📌 To Do App 💫</h1>
       <p>
         Welcome to my <strong>To Do App</strong>, It's a simple yet powerful application designed to help you manage your daily tasks efficiently.
       </p>
